@@ -1,0 +1,14 @@
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/bin/Debug/net8.0/SyntaxTest
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/bin/Debug/net8.0/SyntaxTest.deps.json
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/bin/Debug/net8.0/SyntaxTest.runtimeconfig.json
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/bin/Debug/net8.0/SyntaxTest.dll
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/bin/Debug/net8.0/SyntaxTest.pdb
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.AssemblyInfoInputs.cache
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.AssemblyInfo.cs
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.csproj.CoreCompileInputs.cache
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.dll
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/refint/SyntaxTest.dll
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.pdb
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/SyntaxTest.genruntimeconfig.cache
+/Users/uladzislaumac/Desktop/PetProjects/SyntaxCS/SyntaxTest/obj/Debug/net8.0/ref/SyntaxTest.dll
