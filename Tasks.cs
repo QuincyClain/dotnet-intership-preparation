@@ -835,13 +835,15 @@ public class Tasks {
         }
         Console.WriteLine();
 
-        var usersByAgeByName = users
+        var adultUserNamesSorted = users
             .Where(user => user.Age >= 18)
-            .OrderBy(user => user.Name);
+            .OrderBy(user => user.Name)
+            .Select(user => user.Name)
+            .ToList();
 
-        foreach(var user in usersByAgeByName)
+        foreach(var user in adultUserNamesSorted)
         {
-            Console.Write($"{user.Name}, {user.Age} y.o. ");
+            Console.Write(user + " ");
         }
         Console.WriteLine();
 
@@ -868,7 +870,7 @@ public class Tasks {
             Console.WriteLine("Empty name found");
         }
 
-        var groupedByCountry = users.GroupBy(user => user.Country);
+        var groupedByCountry = users.GroupBy(user => user.Country).ToList();
         foreach(var group in groupedByCountry)
         {
             if(group.Key == "Lithuania")
@@ -908,6 +910,16 @@ public class Tasks {
         foreach(var group in groupedByCountry)
         {
             Console.WriteLine($"{group.Key}, {group.Count()}");
+        }
+
+        Dictionary<string, User> usersByName = users.ToDictionary(user => user.Name);
+        if (usersByName.TryGetValue("Maria", out User? userMasha))
+        {
+            Console.WriteLine($"{userMasha.Name}, {userMasha.Age}, {userMasha.Country}");
+        }
+        else
+        {
+            Console.WriteLine("User named Maria not found");
         }
     }
 }
