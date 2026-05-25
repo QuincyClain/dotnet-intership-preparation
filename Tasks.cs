@@ -7,6 +7,7 @@ using System.Runtime.Versioning;
 using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using OopPractice;
 
 namespace Tasks;
 
@@ -922,7 +923,60 @@ public class Tasks {
             Console.WriteLine("User named Maria not found");
         }
     }
+
+    public void OopPractice()
+    {
+        BankAccount account = new BankAccount("Vlad", 1500);
+        Console.WriteLine(account.PrintInfo());
+        account.Deposit(500);
+        Console.WriteLine(account.PrintInfo());
+        account.Withdraw(300);
+        Console.WriteLine(account.PrintInfo());
+    }
+
+    public void OopPracticeAccessModifiers()
+    {
+        UserProfile profile = new UserProfile("Vlad", "pesotskiyvlad9@gmail.com", "meowmeow123");
+
+        Console.WriteLine($"Username: {profile.Username}, Email: {profile.Email}");
+
+        if (profile.CheckPassword("meowmeow123"))
+        {
+            Console.WriteLine($"Password is correct");
+        }
+        else
+        {
+            Console.WriteLine("Something is wrong!");
+        }
+        
+        profile.ChangeEmail("pesotskiyvlad888@gmail.com");
+        Console.WriteLine($"UPDATED: profile {profile.Username}, Email: {profile.Email}");
+    }
+
+    public void OopInheritancePractice()
+    {
+        Employee employee = new Employee("Alex", 1000);
+        Manager manager = new Manager("Vlad", 1000, 500);
+        Console.WriteLine(employee.PrintInfo());
+        Console.WriteLine(manager.PrintInfo());
+    }
+
+    public void OopPolymorphismPractice()
+    {
+        List<Employee> employees = new()
+        {
+            new Employee("Alex", 1000),
+            new Manager("Vlad", 1000, 500),
+            new Developer("Anna", 2000, 300)
+        };
+
+        foreach (Employee employee in employees)
+        {
+            Console.WriteLine(employee.PrintInfo());
+        }
+    }
 }
+
 
 public class User
 {

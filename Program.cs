@@ -26,6 +26,10 @@ class Program
         //task.LinqGroupByPractice();
         //task.LinqGroupByUsersPractice();
         //task.LinqToDictionaryPractice();
-        task.LinqFinalUsersPractice();
+        //task.LinqFinalUsersPractice();
+        //task.OopPractice();
+        //task.OopPracticeAccessModifiers();
+        //task.OopInheritancePractice();
+        task.OopPolymorphismPractice();
     }   
 }
