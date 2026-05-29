@@ -955,18 +955,15 @@ public class Tasks {
 
     public void OopInheritancePractice()
     {
-        Employee employee = new Employee("Alex", 1000);
-        Manager manager = new Manager("Vlad", 1000, 500);
-        Console.WriteLine(employee.PrintInfo());
-        Console.WriteLine(manager.PrintInfo());
+        //Manager manager = new Manager("Vlad", 1000, 500);
+        //Console.WriteLine(manager.PrintInfo());
     }
 
     public void OopPolymorphismPractice()
     {
         List<Employee> employees = new()
         {
-            new Employee("Alex", 1000),
-            new Manager("Vlad", 1000, 500),
+            //new Manager("Vlad", 1000, 500),
             new Developer("Anna", 2000, 300)
         };
 
@@ -974,6 +971,26 @@ public class Tasks {
         {
             Console.WriteLine(employee.PrintInfo());
         }
+    }
+
+    /*public void OopInterfacePractice()
+    {
+        Manager manager = new Manager("Vlad", 1000, 500);
+        Developer developer = new Developer("Anna", 2000, 300);
+        
+        IReportable reportable = manager;
+        ICodeReviewer codeReviewer = developer;
+        
+        Console.WriteLine(reportable.GenerateReport());
+        Console.WriteLine(codeReviewer.ReviewCode());
+    }*/
+
+    public void OopCompositionPractice()
+    {
+        ReportGenerator reportGenerator = new();
+        Manager manager = new Manager("Vlad", 1000, 500, reportGenerator);
+        
+        Console.WriteLine(manager.GenerateReportUsingReportGenerator());
     }
 }
 

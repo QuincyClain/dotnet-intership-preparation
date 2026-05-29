@@ -2,12 +2,31 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace OopPractice;
 
-public class Employee
+public interface IReportable
 {
-    public string Name { get; private set; }
-    public decimal BaseSalary { get; private set; }
+    string GenerateReport();
+}
 
-    public Employee(string name, decimal baseSalary)
+public interface ICodeReviewer
+{
+    string ReviewCode();
+}
+
+public class ReportGenerator
+{
+    public string GenerateFor(string employeeName, string position)
+    {
+        return $"{position} {employeeName} generated report using ReportGenerator";
+    }
+}
+
+public abstract class Employee
+{
+    protected string Name { get; private set; }
+    protected decimal BaseSalary { get; private set; }
+    public abstract string Position { get; }
+
+    protected Employee(string name, decimal baseSalary)
     {
         if (string.IsNullOrWhiteSpace(name))
         {
@@ -23,28 +42,39 @@ public class Employee
         BaseSalary = baseSalary;
     }
 
-    public virtual decimal CalculateSalary()
-    {
-        return BaseSalary;
-    }
+    public abstract decimal CalculateSalary();
 
     public virtual string PrintInfo()
     {
-        return $"Employee: {Name}, Salary: {CalculateSalary()}";
+        return $"{Position}: {Name}, Salary: {CalculateSalary()}";
     }
 }
 
-public class Manager: Employee
+public class Manager: Employee, IReportable
 {
     public decimal Bonus { get; private set; }
+    public override string Position => "Manager";
 
-    public Manager(string name, decimal baseSalary, decimal bonus) : base(name, baseSalary)
+    private readonly ReportGenerator _reportGenerator;
+
+    public Manager(string name, decimal baseSalary, decimal bonus, ReportGenerator reportGenerator) : base(name, baseSalary)
     {
         if (bonus < 0)
         {
             throw new ArgumentException("Bonus can not be negative");
         }
         Bonus = bonus;
+        _reportGenerator = reportGenerator;
+    }
+
+    public string GenerateReport()
+    {
+        return $"{Position} {Name} generated team performance report.";
+    }
+
+    public string GenerateReportUsingReportGenerator()
+    {
+        return _reportGenerator.GenerateFor(Name, Position);
     }
 
     public override decimal CalculateSalary()
@@ -54,13 +84,15 @@ public class Manager: Employee
 
     public override string PrintInfo()
     {
-        return $"Manager: {Name}, Salary: {CalculateSalary()}, Bonus: {Bonus}";
+        return $"{Position}: {Name}, Salary: {CalculateSalary()}, Bonus: {Bonus}";
     }
 }
 
-public class Developer: Employee
+public class Developer: Employee, ICodeReviewer
 {
     public decimal OvertimePayment { get; private set; }
+    
+    public override string Position => "Developer";
 
     public Developer (string name, decimal baseSalary, decimal overtimePayment) : base(name, baseSalary)
     {
@@ -72,6 +104,11 @@ public class Developer: Employee
         OvertimePayment = overtimePayment;
     }
 
+    public string ReviewCode()
+    {
+        return $"{Position} {Name} reviewed Pull Request.";
+    }
+
     public override decimal CalculateSalary()
     {
         return BaseSalary + OvertimePayment;
@@ -79,6 +116,6 @@ public class Developer: Employee
 
     public override string PrintInfo()
     {
-        return $"Developer: {Name}, Salary: {CalculateSalary()}, Overtime Payment: {OvertimePayment}";
+        return $"{Position}: {Name}, Salary: {CalculateSalary()}, Overtime Payment: {OvertimePayment}";
     }
 }

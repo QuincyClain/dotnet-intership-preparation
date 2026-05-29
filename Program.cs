@@ -30,6 +30,8 @@ class Program
         //task.OopPractice();
         //task.OopPracticeAccessModifiers();
         //task.OopInheritancePractice();
-        task.OopPolymorphismPractice();
+        //task.OopPolymorphismPractice();
+        //task.OopInterfacePractice();
+        task.OopCompositionPractice();
     }   
 }
